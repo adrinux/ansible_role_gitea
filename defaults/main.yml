@@ -92,8 +92,13 @@ gitea_cors_extra: ''
 # UI (ui)
 # -> https://docs.gitea.io/en-us/config-cheat-sheet/#ui-ui
 gitea_show_user_email: false
-gitea_theme_default: 'auto'
-gitea_themes: 'auto,gitea,arc-green'
+{% if gitea_fork == 'forgejo' %}
+gitea_theme_default: 'forgejo-auto'
+gitea_themes: 'forgejo-auto, forgejo-light, forgejo-dark,gitea-auto,gitea-light,gitea-dark,forgejo-auto-deuteranopia-protanopia,forgejo-light-deuteranopia-protanopia,forgejo-dark-deuteranopia-protanopia,forgejo-auto-tritanopia,forgejo-light-tritanopia,forgejo-dark-tritanopia'
+{% else %}
+gitea_theme_default: 'gitea-auto'
+gitea_themes: 'gitea-auto,gitea-light,gitea-dark'
+{% endif %}
 gitea_ui_extra_config: ''
 
 # UI - Metadata (ui.meta)
